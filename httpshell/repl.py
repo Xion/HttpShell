@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-from httpshell import httpshell
-from httpshell import version
+from . import httpshell
+from . import version
 
 
-def parse_command_line():
+def parse_command_line(argv=None):
     parser = argparse.ArgumentParser(
         description="An interactive shell for issuing HTTP commands to a web server or REST API")
 
@@ -41,14 +41,11 @@ def parse_command_line():
         action="version",
         version="{0} {1}".format("%(prog)s", version.VERSION))
 
-    return parser.parse_args()
+    return parser.parse_args(argv)
 
 
-def main():
-    args = parse_command_line()
+def main(argv=None):
+    args = parse_command_line(argv)
     shell = httpshell.HttpShell(args)
     shell.input_loop()
-
-
-if __name__ == "__main__":
-    main()
+    

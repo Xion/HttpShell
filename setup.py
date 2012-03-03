@@ -21,25 +21,28 @@ if sys.version_info <= (2, 7):
 setup(
     name="httpshell",
     version=version.VERSION,
-    packages=["httpshell"],
-    install_requires=REQUIRES,
-    py_modules=["ez_setup"],
-    scripts=["httpsh"],
-    author="Chris Longo",
-    author_email="chris.longo@gmail.com",
+    description="An interactive shell for issuing HTTP commands to a web server or REST API",
     url="https://github.com/chrislongo/HttpShell/",
     download_url="http://github.com/downloads/chrislongo/HttpShell/httpshell-%s.tar.gz" % version.VERSION,
-    description="An interactive shell for issuing HTTP commands to a web server or REST API",
-      classifiers=[
-          "Development Status :: 5 - Production/Stable",
-          "Intended Audience :: Developers",
-          "License :: OSI Approved :: MIT License",
-          "Natural Language :: English",
-          "Operating System :: OS Independent",
-          'Programming Language :: Python :: 2.4',
-          'Programming Language :: Python :: 2.5',
-          "Programming Language :: Python :: 2.6",
-          "Programming Language :: Python :: 2.7",
-          "Topic :: System :: Networking"
-          ]
-    )
+    author="Chris Longo",
+    author_email="chris.longo@gmail.com",
+
+    packages=["httpshell"],
+    entry_points={'console_scripts': ['httpsh=httpshell.repl:main']},
+    py_modules=["ez_setup"],
+
+    install_requires=REQUIRES,
+    
+    classifiers=[
+      "Development Status :: 5 - Production/Stable",
+      "Intended Audience :: Developers",
+      "License :: OSI Approved :: MIT License",
+      "Natural Language :: English",
+      "Operating System :: OS Independent",
+      'Programming Language :: Python :: 2.4',
+      'Programming Language :: Python :: 2.5',
+      "Programming Language :: Python :: 2.6",
+      "Programming Language :: Python :: 2.7",
+      "Topic :: System :: Networking"
+    ]
+)
